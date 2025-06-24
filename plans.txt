@@ -1,0 +1,16 @@
+24 JUN 2025
+9:20 pm - 10:08 pm 
+1.I will have 4 semaphores (for 4 stations) that some objects (agent class) will try to access. 
+2. after locking the semaphore, they will do some dummy calculation 
+3. after completing, they will notify the leader (confusion: how? idea: the leader will be set using a setLeader method that will give all of them a pointer to him. then call leader.documentDone(this.id) to pass its id to the leader). 
+4. once the leader gets all of the units done message, it will go and try to write and update the log 
+5. the log write read will be done using readers writers block thing 
+6. CONFUSION: Within each unit, the operative holding the highest identification
+number assumes leadership responsibilities, bearing ultimate accountability for the group’s success
+and the safety of fellow members. -- what's the highest identification thing 
+7. CONFUSION: I thought about dummy work, but what exactly is document recreation? how would i do it?
+
+
+issues:
+two agents - they are two struct objects - created at the start of the program. then sen to a queue or for loop or while loop -> they will never simultaneously access the same station - so wee need thread 
+all of the agents will be threads and the stations will be binary semaphores  
