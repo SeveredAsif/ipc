@@ -59,7 +59,7 @@ int get_random_number() {
   return poissonDist(generator);
 }
 
-enum student_state { WRITING_REPORT, WAITING_FOR_PRINTING };
+enum student_state { DOCUMENT_RECREATING, WAITING_FOR_LOGGING };
 
 /**
  * Class representing a student in the simulation.
@@ -75,7 +75,7 @@ public:
    * time.
    * @param id Student's ID.
    */
-  Student(int id) : id(id), state(WRITING_REPORT) {
+  Student(int id) : id(id), state(DOCUMENT_RECREATING) {
     writing_time = get_random_number() % MAX_WRITING_TIME + 1;
   }
 };
@@ -92,8 +92,8 @@ void write_output(std::string output) {
 /**
  * Simulate arriving at the printing station and log the time.
  */
-void start_printing(Student *student) {
-  student->state = WAITING_FOR_PRINTING;
+void start_typewriting(Student *student) {
+  student->state = WAITING_FOR_LOGGING;
 
   write_output("Student " + std::to_string(student->id) +
                " has arrived at the print station at " +
@@ -141,7 +141,7 @@ void *student_activities(void *arg) {
 
   usleep((get_random_number() % WALKING_TO_PRINTER + 1) *
          SLEEP_MULTIPLIER); // Simulate walking to printer
-  start_printing(student);  // Student reaches the printing station
+  start_typewriting(student);  // Student reaches the printing station
 
   sem_post(&stations[stationId]);
   return NULL;

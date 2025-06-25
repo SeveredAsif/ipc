@@ -1,5 +1,3 @@
-
-
 #include <chrono>
 #include <fstream>
 #include <iostream>
@@ -15,6 +13,12 @@ using namespace std;
 //semaphore to control sleep and wake up
 sem_t stations[4];
 
+//semaphore to access the logbook
+sem_t logbook;
+//semaphore for getting exclusive access to reader count 
+sem_t mutex;
+int reader_count = 0;
+volatile bool stop_readers = false;
 
 void init_semaphore()
 {
@@ -61,7 +65,7 @@ int get_random_number() {
   return poissonDist(generator);
 }
 
-enum agent_state { WRITING_REPORT, WAITING_FOR_PRINTING };
+enum agent_state { DOCUMENT_RECREATING, WAITING_FOR_LOGGING };
 
 /**
  * Class representing a agent in the simulation.
@@ -81,7 +85,7 @@ public:
    * time.
    * @param id agent's ID.
    */
-  agent(int id) : id(id), state(WRITING_REPORT) {
+  agent(int id) : id(id), state(DOCUMENT_RECREATING) {
     writing_time = get_random_number() % MAX_WRITING_TIME + 1;
     completion_count = 0;
   }
@@ -106,11 +110,11 @@ void write_output(std::string output) {
 /**
  * Simulate arriving at the printing station and log the time.
  */
-void start_printing(agent *agent) {
-  agent->state = WAITING_FOR_PRINTING;
+void start_typewriting(agent *agent) {
+  agent->state = WAITING_FOR_LOGGING;
 
   write_output("agent " + std::to_string(agent->id) +
-               " has arrived at the print station at " +
+               " has arrived at the typewriting station at " +
                std::to_string(get_time()) + " ms\n");
 }
 
@@ -124,9 +128,42 @@ void initialize() {
 
   // Initialize mutex lock
   pthread_mutex_init(&output_lock, NULL);
+  sem_init(&logbook,1,1);
+  sem_init(&mutex,1,1);
 
   start_time = std::chrono::high_resolution_clock::now(); // Reset start time
 }
+
+
+void *logbook_staff_member_activities(void * arg){
+    while(!stop_readers){
+        usleep(get_random_number()%2000);
+        sem_wait(&mutex);
+        reader_count = reader_count + 1;
+        
+        if(reader_count==1){
+            sem_wait(&logbook);
+        }
+        sem_post(&mutex);
+        cout<<(const char*)arg<<endl;
+        usleep(1000); //simulating the logbook read
+        sem_wait(&mutex);
+        reader_count = reader_count - 1;
+        if(reader_count==0){
+            sem_post(&logbook);
+        }
+        sem_post(&mutex);
+        
+    }
+    return NULL;
+}
+
+// void *writer_activities(void *arg){
+//     sem_wait(&logbook);
+     
+//     sem_post(&logbook);
+//     return NULL;
+// }
 
 /**
  * Thread function for agent activities.
@@ -155,7 +192,7 @@ void *agent_activities(void *arg) {
 
   usleep((get_random_number() % WALKING_TO_PRINTER + 1) *
          SLEEP_MULTIPLIER); // Simulate walking to printer
-  start_printing(agentt);  // agent reaches the printing station
+  start_typewriting(agentt);  // agent reaches the document recreation station
 
   agentt->leader->notify_leader(agentt->id);
   //cout<<"team of agent"<<agentt->id<<" is team: "<<agentt->team_number<<endl;
@@ -203,10 +240,14 @@ int main(int argc, char *argv[]) {
 
   pthread_t agent_threads[N]; // Array to hold agent threads
 
-//   for(int i=0;i<N;i++){
-//     agent new_agent(i);
-//     agents.push_back(new_agent);
-//   }
+  pthread_t logbook_staffs[2];
+  const char* msg1 = "providing periodic operational progress reports to Thomas Shelby\n";
+  const char* msg2 = "maintaining status updates on information board\n";
+  int staffid1 = 1,staffid2=2;
+
+  pthread_create(&logbook_staffs[0],NULL,logbook_staff_member_activities,(void*)msg1);
+ 
+  pthread_create(&logbook_staffs[1],NULL,logbook_staff_member_activities,(void*)msg2);
 
 
   init_semaphore();
@@ -250,6 +291,10 @@ int main(int argc, char *argv[]) {
   for (int i = 0; i < N; i++) {
     pthread_join(agent_threads[i], NULL);
   }
+   stop_readers = true;
+//   pthread_join(logbook_staffs[0],NULL);
+//   pthread_join(logbook_staffs[1],NULL);
+
 
   // Restore std::cin and cout to their original states (console)
   std::cin.rdbuf(cinBuffer);
@@ -258,6 +303,3 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
-/*
-  Prepared by: Nafis Tahmid (1905002), Date: 10 November 2024
-*/

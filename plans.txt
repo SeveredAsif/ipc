@@ -24,4 +24,5 @@ plans:
 3. notify the leader, leader counts up 
 
 1. 7:22 pm - 8:48 pm - first part done: assigning team, assigning leader,station work and notifying leader
+2. 9:17 pm - 10:35 pm - tried the logbook reading thread - has some implementation problem 
 
