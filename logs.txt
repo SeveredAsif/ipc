@@ -1,0 +1,162 @@
+agent: 30 assigned as the leader of team 6
+agent: 30 assigned to team 6 and his leader is agent 30
+agent: 29 assigned to team 6 and his leader is agent 30
+agent: 28 assigned to team 6 and his leader is agent 30
+agent: 27 assigned to team 6 and his leader is agent 30
+agent: 26 assigned to team 6 and his leader is agent 30
+agent: 25 assigned as the leader of team 5
+agent: 25 assigned to team 5 and his leader is agent 25
+agent: 24 assigned to team 5 and his leader is agent 25
+agent: 23 assigned to team 5 and his leader is agent 25
+agent: 22 assigned to team 5 and his leader is agent 25
+agent: 21 assigned to team 5 and his leader is agent 25
+agent: 20 assigned as the leader of team 4
+agent: 20 assigned to team 4 and his leader is agent 20
+agent: 19 assigned to team 4 and his leader is agent 20
+agent: 18 assigned to team 4 and his leader is agent 20
+agent: 17 assigned to team 4 and his leader is agent 20
+agent: 16 assigned to team 4 and his leader is agent 20
+agent: 15 assigned as the leader of team 3
+agent: 15 assigned to team 3 and his leader is agent 15
+agent: 14 assigned to team 3 and his leader is agent 15
+agent: 13 assigned to team 3 and his leader is agent 15
+agent: 12 assigned to team 3 and his leader is agent 15
+agent: 11 assigned to team 3 and his leader is agent 15
+agent: 10 assigned as the leader of team 2
+agent: 10 assigned to team 2 and his leader is agent 10
+agent: 9 assigned to team 2 and his leader is agent 10
+agent: 8 assigned to team 2 and his leader is agent 10
+agent: 7 assigned to team 2 and his leader is agent 10
+agent: 6 assigned to team 2 and his leader is agent 10
+agent: 5 assigned as the leader of team 1
+agent: 5 assigned to team 1 and his leader is agent 5
+agent: 4 assigned to team 1 and his leader is agent 5
+agent: 3 assigned to team 1 and his leader is agent 5
+agent: 2 assigned to team 1 and his leader is agent 5
+agent: 1 assigned to team 1 and his leader is agent 5
+agent 5 started waiting at station 2 at 0 ms
+agent 5 started writing for 20 ms at 0 ms at station 2
+agent 2 started waiting at station 3 at 1 ms
+agent 2 started writing for 6 ms at 1 ms at station 3
+agent 15 started waiting at station 4 at 2 ms
+agent 15 started writing for 20 ms at 2 ms at station 4
+agent 22 started waiting at station 3 at 3 ms
+agent 26 started waiting at station 3 at 5 ms
+agent 1 started waiting at station 2 at 6 ms
+agent 29 started waiting at station 2 at 7 ms
+agent 2 finished writing at 7 ms at station 3
+agent 20 started waiting at station 1 at 8 ms
+agent 20 started writing for 16 ms at 8 ms at station 1
+agent 8 started waiting at station 1 at 9 ms
+agent 4 started waiting at station 1 at 10 ms
+agent 11 started waiting at station 4 at 12 ms
+agent 23 started waiting at station 4 at 13 ms
+agent 2 has arrived at the print station at 13 ms
+agent 22 started writing for 8 ms at 13 ms at station 3
+agent 28 started waiting at station 1 at 14 ms
+agent 17 started waiting at station 2 at 15 ms
+agent 16 started waiting at station 1 at 16 ms
+agent 24 started waiting at station 1 at 18 ms
+agent 21 started waiting at station 2 at 19 ms
+agent 5 finished writing at 20 ms at station 2
+agent 25 started waiting at station 2 at 20 ms
+agent 18 started waiting at station 3 at 21 ms
+agent 22 finished writing at 21 ms at station 3
+agent 15 finished writing at 22 ms at station 4
+agent 27 started waiting at station 4 at 23 ms
+agent 6 started waiting at station 3 at 24 ms
+agent 20 finished writing at 24 ms at station 1
+agent 12 started waiting at station 1 at 25 ms
+agent 5 has arrived at the print station at 25 ms
+agent 1 started writing for 5 ms at 25 ms at station 2
+agent 30 started waiting at station 3 at 26 ms
+agent 22 has arrived at the print station at 26 ms
+agent 26 started writing for 19 ms at 26 ms at station 3
+agent 20 has arrived at the print station at 27 ms
+agent 8 started writing for 7 ms at 27 ms at station 1
+agent 10 started waiting at station 3 at 28 ms
+agent 3 started waiting at station 4 at 29 ms
+agent 9 started waiting at station 2 at 30 ms
+agent 1 finished writing at 30 ms at station 2
+agent 15 has arrived at the print station at 31 ms
+agent 11 started writing for 11 ms at 31 ms at station 4
+agent 19 started waiting at station 4 at 31 ms
+agent 7 started waiting at station 4 at 33 ms
+agent 14 started waiting at station 3 at 34 ms
+agent 8 finished writing at 35 ms at station 1
+agent 13 started waiting at station 2 at 36 ms
+agent 8 has arrived at the print station at 36 ms
+agent 4 started writing for 6 ms at 36 ms at station 1
+agent 1 has arrived at the print station at 40 ms
+agent 29 started writing for 2 ms at 40 ms at station 2
+agent 11 finished writing at 42 ms at station 4
+agent 4 finished writing at 42 ms at station 1
+agent 29 finished writing at 43 ms at station 2
+agent 4 has arrived at the print station at 43 ms
+agent 28 started writing for 2 ms at 43 ms at station 1
+agent 28 finished writing at 45 ms at station 1
+agent 26 finished writing at 46 ms at station 3
+agent 29 has arrived at the print station at 48 ms
+agent 17 started writing for 4 ms at 48 ms at station 2
+agent 11 has arrived at the print station at 48 ms
+agent 23 started writing for 1 ms at 48 ms at station 4
+agent 23 finished writing at 49 ms at station 4
+agent 26 has arrived at the print station at 51 ms
+agent 18 started writing for 5 ms at 51 ms at station 3
+agent 17 finished writing at 52 ms at station 2
+agent 28 has arrived at the print station at 52 ms
+agent 16 started writing for 12 ms at 52 ms at station 1
+agent 17 has arrived at the print station at 53 ms
+agent 21 started writing for 16 ms at 53 ms at station 2
+agent 23 has arrived at the print station at 54 ms
+agent 27 started writing for 4 ms at 54 ms at station 4
+agent 18 finished writing at 56 ms at station 3
+agent 27 finished writing at 58 ms at station 4
+agent 18 has arrived at the print station at 64 ms
+agent 6 started writing for 1 ms at 64 ms at station 3
+agent 16 finished writing at 64 ms at station 1
+agent 6 finished writing at 65 ms at station 3
+agent 27 has arrived at the print station at 66 ms
+agent 3 started writing for 4 ms at 66 ms at station 4
+agent 21 finished writing at 69 ms at station 2
+agent 3 finished writing at 71 ms at station 4
+agent 6 has arrived at the print station at 72 ms
+agent 30 started writing for 18 ms at 73 ms at station 3
+agent 21 has arrived at the print station at 73 ms
+agent 16 has arrived at the print station at 74 ms
+agent 25 started writing for 13 ms at 74 ms at station 2
+agent 24 started writing for 12 ms at 74 ms at station 1
+agent 3 has arrived at the print station at 78 ms
+leader of team 1 is going to write to logbook,his agent id: 5
+agent 19 started writing for 4 ms at 78 ms at station 4
+agent 19 finished writing at 82 ms at station 4
+agent 24 finished writing at 86 ms at station 1
+agent 25 finished writing at 87 ms at station 2
+agent 30 finished writing at 91 ms at station 3
+agent 25 has arrived at the print station at 91 ms
+agent 9 started writing for 20 ms at 91 ms at station 2
+agent 19 has arrived at the print station at 92 ms
+leader of team 4 is going to write to logbook,his agent id: 20
+agent 7 started writing for 4 ms at 92 ms at station 4
+agent 24 has arrived at the print station at 94 ms
+leader of team 5 is going to write to logbook,his agent id: 25
+agent 12 started writing for 18 ms at 94 ms at station 1
+agent 7 finished writing at 96 ms at station 4
+agent 30 has arrived at the print station at 98 ms
+leader of team 6 is going to write to logbook,his agent id: 30
+agent 10 started writing for 18 ms at 98 ms at station 3
+agent 7 has arrived at the print station at 106 ms
+agent 9 finished writing at 111 ms at station 2
+agent 12 finished writing at 112 ms at station 1
+agent 9 has arrived at the print station at 115 ms
+agent 13 started writing for 15 ms at 115 ms at station 2
+agent 10 finished writing at 116 ms at station 3
+agent 10 has arrived at the print station at 120 ms
+leader of team 2 is going to write to logbook,his agent id: 10
+agent 14 started writing for 4 ms at 120 ms at station 3
+agent 12 has arrived at the print station at 122 ms
+agent 14 finished writing at 125 ms at station 3
+agent 13 finished writing at 130 ms at station 2
+agent 13 has arrived at the print station at 132 ms
+agent 14 has arrived at the print station at 133 ms
+leader of team 3 is going to write to logbook,his agent id: 15

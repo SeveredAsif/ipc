@@ -14,3 +14,14 @@ and the safety of fellow members. -- what's the highest identification thing
 issues:
 two agents - they are two struct objects - created at the start of the program. then sen to a queue or for loop or while loop -> they will never simultaneously access the same station - so wee need thread 
 all of the agents will be threads and the stations will be binary semaphores  
+
+
+25 JUN 2025
+10:30am
+plans:
+1. will create agents pthread, they will try to take their mutex locks of the corresponding stations
+2. then they will do the dummy works like agent report generator , exact same way 
+3. notify the leader, leader counts up 
+
+1. 7:22 pm - 8:48 pm - first part done: assigning team, assigning leader,station work and notifying leader
+
