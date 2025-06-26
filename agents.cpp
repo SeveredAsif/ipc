@@ -18,7 +18,9 @@ sem_t logbook;
 //semaphore for getting exclusive access to reader count 
 sem_t mutex;
 int reader_count = 0;
+int logbook_total_completion = 0;
 volatile bool stop_readers = false;
+sem_t thread_create;
 
 void init_semaphore()
 {
@@ -35,6 +37,7 @@ void init_semaphore()
 #define SLEEP_MULTIPLIER 1000 // Multiplier to convert seconds to milliseconds
 
 int N; // Number of agents
+int y; //Logbook entry time 
 
 // Mutex lock for output to file for avoiding interleaving
 pthread_mutex_t output_lock;
@@ -67,6 +70,8 @@ int get_random_number() {
 
 enum agent_state { DOCUMENT_RECREATING, WAITING_FOR_LOGGING };
 
+void* writer_activities(void* arg);
+
 /**
  * Class representing a agent in the simulation.
  */
@@ -85,16 +90,22 @@ public:
    * time.
    * @param id agent's ID.
    */
-  agent(int id) : id(id), state(DOCUMENT_RECREATING) {
-    writing_time = get_random_number() % MAX_WRITING_TIME + 1;
+  agent(int id,int x) : id(id), state(DOCUMENT_RECREATING) {
+    writing_time = x;
     completion_count = 0;
   }
 
   void notify_leader(int id){
+    //sem_wait(&thread_create);
     this->completion_count++;
     if(this->completion_count==team_size){
         cout<<"leader of team "<<team_number<<" is going to write to logbook,his agent id: "<<this->id<<endl;
+        pthread_t leader;
+        pthread_create(&leader,NULL,writer_activities,(void*)this);
     }
+
+
+    //sem_post(&thread_create);
   }
 };
 
@@ -110,20 +121,22 @@ void write_output(std::string output) {
 /**
  * Simulate arriving at the printing station and log the time.
  */
-void start_typewriting(agent *agent) {
-  agent->state = WAITING_FOR_LOGGING;
+void start_document_recreation(agent *agentt, int stationId) {
+  
+    write_output("Operative " + std::to_string(agentt->id) +
+    " has started document recreation at time " +/*std::to_string(agentt->writing_time) +
+    " ms at "*/   std::to_string(get_time()) + " at station "+to_string(stationId+1)+"\n");
+    usleep(agentt->writing_time * SLEEP_MULTIPLIER); // Simulate document recreating time
+    agentt->state = WAITING_FOR_LOGGING;
 
-  write_output("agent " + std::to_string(agent->id) +
-               " has arrived at the typewriting station at " +
-               std::to_string(get_time()) + " ms\n");
 }
 
 /**
  * Initialize agents and set the start time for the simulation.
  */
-void initialize() {
+void initialize(int x) {
   for (int i = 1; i <= N; i++) {
-    agents.emplace_back(agent(i));
+    agents.emplace_back(agent(i,x));
   }
 
   // Initialize mutex lock
@@ -134,10 +147,13 @@ void initialize() {
   start_time = std::chrono::high_resolution_clock::now(); // Reset start time
 }
 
-
+// const char* msg1 = "providing periodic operational progress reports to Thomas Shelby\n";
+// const char* msg2 = "maintaining status updates on information board\n";
 void *logbook_staff_member_activities(void * arg){
+  int* staffid = (int*)arg;
     while(!stop_readers){
         usleep(get_random_number()%2000);
+        write_output("[Time " + to_string(get_time()) + " ms] Intelligence Staff " + to_string(*staffid) + " is waiting to read the logbook..." + "\n");
         sem_wait(&mutex);
         reader_count = reader_count + 1;
         
@@ -145,25 +161,50 @@ void *logbook_staff_member_activities(void * arg){
             sem_wait(&logbook);
         }
         sem_post(&mutex);
-        cout<<(const char*)arg<<endl;
-        usleep(1000); //simulating the logbook read
+        write_output("Intelligence Staff "+to_string(*staffid)+" began reviewing logbook at time "+to_string(get_time())+". Operations completed = "+to_string(logbook_total_completion)+"\n");
+        
+        //cout << "[Time " << get_time() << " ms] ,staff " << *staffid << " has started reading the logbook." << endl;
+        //cout<<staffmsg<<endl;
+        usleep(1000); //simulating the logbook read time 
         sem_wait(&mutex);
         reader_count = reader_count - 1;
         if(reader_count==0){
             sem_post(&logbook);
         }
+        write_output("[Time " + to_string(get_time())  + " ms] Intelligence Staff " + to_string(*staffid)  + " has finished reading the logbook." + "\n");
         sem_post(&mutex);
-        
     }
     return NULL;
 }
 
-// void *writer_activities(void *arg){
-//     sem_wait(&logbook);
-     
-//     sem_post(&logbook);
-//     return NULL;
-// }
+void* writer_activities(void* arg) {
+  agent* leader = (agent*) arg;
+
+  write_output("[Time " + to_string(get_time()) + " ms] " +
+               "Leader of Team " + to_string(leader->team_number) +
+               " (Agent " + to_string(leader->id) + ") is waiting to write to the logbook...\n");
+
+  sem_wait(&logbook);  
+
+  write_output("[Time " + to_string(get_time()) + " ms] " +
+               "Leader of Team " + to_string(leader->team_number) +
+               " (Agent " + to_string(leader->id) + ") is writing to the logbook...\n");
+
+  logbook_total_completion += leader->team_size;  
+
+  usleep(y*SLEEP_MULTIPLIER); //y=Logbook entry time  
+
+  write_output("[Time " + to_string(get_time()) + " ms] " +
+               "Leader of Team " + to_string(leader->team_number) +
+               " (Agent " + to_string(leader->id) + ") has completed writing to the logbook. " +
+               "Operations completed = " + to_string(logbook_total_completion) + "\n");
+
+  sem_post(&logbook);  
+
+  return NULL;
+}
+
+
 
 /**
  * Thread function for agent activities.
@@ -177,22 +218,19 @@ void *agent_activities(void *arg) {
   //desired station = id % 4 + 1
   int stationId = agentt->id % 4;
 
-  write_output("agent " + std::to_string(agentt->id) +
-               " started waiting at station " + to_string(stationId+1)  +
-               " at " + std::to_string(get_time()) + " ms\n");  
+  write_output("Operative " + std::to_string(agentt->id) +
+               " has arrived at typewriting station " + to_string(stationId+1)  +
+               " at time " + std::to_string(get_time()) + "\n");  
 
  sem_wait(&stations[stationId]);
 
-  write_output("agent " + std::to_string(agentt->id) +
-               " started writing for " + std::to_string(agentt->writing_time) +
-               " ms at " + std::to_string(get_time()) + " ms at station "+to_string(stationId+1)+"\n");
-  usleep(agentt->writing_time * SLEEP_MULTIPLIER); // Simulate writing time
-  write_output("agent " + std::to_string(agentt->id) +
-               " finished writing at " + std::to_string(get_time()) + " ms at station "+to_string(stationId+1)+"\n");
+ start_document_recreation(agentt,stationId);  // agent reaches the document recreation station
+ write_output("Operative " + std::to_string(agentt->id) +
+               " has completed document recreation at time " + std::to_string(get_time()) + " at station "+to_string(stationId+1)+"\n");
 
-  usleep((get_random_number() % WALKING_TO_PRINTER + 1) *
-         SLEEP_MULTIPLIER); // Simulate walking to printer
-  start_typewriting(agentt);  // agent reaches the document recreation station
+  // usleep((get_random_number() % WALKING_TO_PRINTER + 1) *
+  //        SLEEP_MULTIPLIER); // Simulate walking to printer
+
 
   agentt->leader->notify_leader(agentt->id);
   //cout<<"team of agent"<<agentt->id<<" is team: "<<agentt->team_number<<endl;
@@ -241,25 +279,33 @@ int main(int argc, char *argv[]) {
   pthread_t agent_threads[N]; // Array to hold agent threads
 
   pthread_t logbook_staffs[2];
-  const char* msg1 = "providing periodic operational progress reports to Thomas Shelby\n";
-  const char* msg2 = "maintaining status updates on information board\n";
-  int staffid1 = 1,staffid2=2;
 
-  pthread_create(&logbook_staffs[0],NULL,logbook_staff_member_activities,(void*)msg1);
- 
-  pthread_create(&logbook_staffs[1],NULL,logbook_staff_member_activities,(void*)msg2);
+  int* staffid1 = new int(1);
+  int *staffid2= new int(2);
+
 
 
   init_semaphore();
 
-  initialize(); // Initialize agents and mutex lock
+
 
   int remainingagents = N;
   bool started[N];
 
   int M;
   cin>>M;
+
+  int x;
+  cin>>x;
+  initialize(x); // Initialize agents and mutex lock
+  cin>>y;
+
   init_teams(agents,N,M);
+
+
+  pthread_create(&logbook_staffs[0],NULL,logbook_staff_member_activities,(void*)staffid1);
+ 
+  pthread_create(&logbook_staffs[1],NULL,logbook_staff_member_activities,(void*)staffid2);
 
   // start agent threads randomly
   while (remainingagents) {
@@ -277,6 +323,7 @@ int main(int argc, char *argv[]) {
     }
   }
 
+  
   
 
   // after waiting for 7(our choice) secs, start the remaining agent threadss
