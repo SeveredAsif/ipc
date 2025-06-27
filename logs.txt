@@ -1,189 +1,81 @@
-agent: 15 assigned as the leader of team 3
-agent: 15 assigned to team 3 and his leader is agent 15
-agent: 14 assigned to team 3 and his leader is agent 15
-agent: 13 assigned to team 3 and his leader is agent 15
-agent: 12 assigned to team 3 and his leader is agent 15
-agent: 11 assigned to team 3 and his leader is agent 15
-agent: 10 assigned as the leader of team 2
-agent: 10 assigned to team 2 and his leader is agent 10
-agent: 9 assigned to team 2 and his leader is agent 10
-agent: 8 assigned to team 2 and his leader is agent 10
-agent: 7 assigned to team 2 and his leader is agent 10
-agent: 6 assigned to team 2 and his leader is agent 10
-agent: 5 assigned as the leader of team 1
-agent: 5 assigned to team 1 and his leader is agent 5
-agent: 4 assigned to team 1 and his leader is agent 5
-agent: 3 assigned to team 1 and his leader is agent 5
-agent: 2 assigned to team 1 and his leader is agent 5
-agent: 1 assigned to team 1 and his leader is agent 5
-Operative 2 has arrived at typewriting station 3 at time 0
-Operative 2 has started document recreation at time 0 at station 3
+agent: 6 assigned as the leader of team 3
+agent: 6 assigned to team 3 and his leader is agent 6
+agent: 5 assigned to team 3 and his leader is agent 6
+agent: 4 assigned as the leader of team 2
+agent: 4 assigned to team 2 and his leader is agent 4
+agent: 3 assigned to team 2 and his leader is agent 4
+agent: 2 assigned as the leader of team 1
+agent: 2 assigned to team 1 and his leader is agent 2
+agent: 1 assigned to team 1 and his leader is agent 2
 [Time 0 ms] Intelligence Staff 1 is waiting to read the logbook...
+Operative 4 has arrived at typewriting station 1 at time 0
 Intelligence Staff 1 began reviewing logbook at time 0. Operations completed = 0
+Operative 4 has started document recreation at time 0 at station 1
 [Time 0 ms] Intelligence Staff 2 is waiting to read the logbook...
 Intelligence Staff 2 began reviewing logbook at time 0. Operations completed = 0
-Operative 11 has arrived at typewriting station 4 at time 1
-Operative 11 has started document recreation at time 1 at station 4
 [Time 1 ms] Intelligence Staff 1 has finished reading the logbook.
+Operative 1 has arrived at typewriting station 2 at time 1
+Operative 1 has started document recreation at time 1 at station 2
 [Time 1 ms] Intelligence Staff 2 has finished reading the logbook.
-[Time 2 ms] Intelligence Staff 1 is waiting to read the logbook...
-Intelligence Staff 1 began reviewing logbook at time 2. Operations completed = 0
-Operative 9 has arrived at typewriting station 2 at time 2
-Operative 9 has started document recreation at time 2 at station 2
-[Time 3 ms] Intelligence Staff 1 has finished reading the logbook.
+[Time 1 ms] Intelligence Staff 1 is waiting to read the logbook...
+Intelligence Staff 1 began reviewing logbook at time 1. Operations completed = 0
+[Time 2 ms] Intelligence Staff 2 is waiting to read the logbook...
+Intelligence Staff 2 began reviewing logbook at time 2. Operations completed = 0
+Operative 5 has arrived at typewriting station 2 at time 2
+[Time 2 ms] Intelligence Staff 1 has finished reading the logbook.
 [Time 3 ms] Intelligence Staff 1 is waiting to read the logbook...
 Intelligence Staff 1 began reviewing logbook at time 3. Operations completed = 0
-[Time 3 ms] Intelligence Staff 2 is waiting to read the logbook...
-Intelligence Staff 2 began reviewing logbook at time 3. Operations completed = 0
-Operative 8 has arrived at typewriting station 1 at time 4
-Operative 8 has started document recreation at time 4 at station 1
+[Time 3 ms] Intelligence Staff 2 has finished reading the logbook.
+Operative 6 has arrived at typewriting station 3 at time 4
+Operative 6 has started document recreation at time 4 at station 3
 [Time 4 ms] Intelligence Staff 1 has finished reading the logbook.
-[Time 5 ms] Intelligence Staff 2 has finished reading the logbook.
 [Time 5 ms] Intelligence Staff 2 is waiting to read the logbook...
 Intelligence Staff 2 began reviewing logbook at time 5. Operations completed = 0
-Operative 12 has arrived at typewriting station 1 at time 5
-[Time 6 ms] Intelligence Staff 2 has finished reading the logbook.
-Operative 7 has arrived at typewriting station 4 at time 6
+Operative 2 has arrived at typewriting station 3 at time 5
+Operative 4 has completed document recreation at time 5 at station 1
 [Time 6 ms] Intelligence Staff 1 is waiting to read the logbook...
 Intelligence Staff 1 began reviewing logbook at time 6. Operations completed = 0
+[Time 6 ms] Intelligence Staff 2 has finished reading the logbook.
+Operative 3 has arrived at typewriting station 4 at time 6
+Operative 3 has started document recreation at time 6 at station 4
+Operative 1 has completed document recreation at time 6 at station 2
+Operative 5 has started document recreation at time 6 at station 2
 [Time 7 ms] Intelligence Staff 1 has finished reading the logbook.
-Operative 5 has arrived at typewriting station 2 at time 7
-[Time 7 ms] Intelligence Staff 1 is waiting to read the logbook...
-Intelligence Staff 1 began reviewing logbook at time 7. Operations completed = 0
 [Time 8 ms] Intelligence Staff 2 is waiting to read the logbook...
 Intelligence Staff 2 began reviewing logbook at time 8. Operations completed = 0
-Operative 10 has arrived at typewriting station 3 at time 8
-[Time 9 ms] Intelligence Staff 1 has finished reading the logbook.
+Operative 6 has completed document recreation at time 9 at station 3
+Operative 2 has started document recreation at time 9 at station 3
+[Time 9 ms] Intelligence Staff 1 is waiting to read the logbook...
+Intelligence Staff 1 began reviewing logbook at time 9. Operations completed = 0
 [Time 9 ms] Intelligence Staff 2 has finished reading the logbook.
-Operative 6 has arrived at typewriting station 3 at time 10
-Operative 2 has completed document recreation at time 10 at station 3
-Operative 10 has started document recreation at time 10 at station 3
-[Time 11 ms] Intelligence Staff 1 is waiting to read the logbook...
-Intelligence Staff 1 began reviewing logbook at time 11. Operations completed = 0
-Operative 4 has arrived at typewriting station 1 at time 11
+[Time 10 ms] Intelligence Staff 1 has finished reading the logbook.
 [Time 11 ms] Intelligence Staff 2 is waiting to read the logbook...
 Intelligence Staff 2 began reviewing logbook at time 11. Operations completed = 0
-Operative 11 has completed document recreation at time 11 at station 4
-Operative 7 has started document recreation at time 11 at station 4
-[Time 12 ms] Intelligence Staff 1 has finished reading the logbook.
-Operative 15 has arrived at typewriting station 4 at time 12
+Operative 3 has completed document recreation at time 11 at station 4
+Unit 2 has completed document recreation phase at time 11
+[Time 11 ms] Leader of Team 2 (Agent 4) is waiting to write to the logbook...
+Operative 5 has completed document recreation at time 11 at station 2
+Unit 3 has completed document recreation phase at time 11
+[Time 12 ms] Leader of Team 3 (Agent 6) is waiting to write to the logbook...
+[Time 12 ms] Intelligence Staff 1 is waiting to read the logbook...
+Intelligence Staff 1 began reviewing logbook at time 12. Operations completed = 0
 [Time 12 ms] Intelligence Staff 2 has finished reading the logbook.
-Operative 9 has completed document recreation at time 12 at station 2
-Operative 5 has started document recreation at time 12 at station 2
-Operative 13 has arrived at typewriting station 2 at time 13
-Operative 8 has completed document recreation at time 14 at station 1
-[Time 14 ms] Intelligence Staff 1 is waiting to read the logbook...
-Intelligence Staff 1 began reviewing logbook at time 14. Operations completed = 0
-Operative 12 has started document recreation at time 14 at station 1
-[Time 14 ms] Intelligence Staff 2 is waiting to read the logbook...
-Intelligence Staff 2 began reviewing logbook at time 14. Operations completed = 0
-Operative 1 has arrived at typewriting station 2 at time 14
-[Time 15 ms] Intelligence Staff 1 has finished reading the logbook.
+[Time 12 ms] Intelligence Staff 2 is waiting to read the logbook...
+Intelligence Staff 2 began reviewing logbook at time 12. Operations completed = 0
+[Time 13 ms] Intelligence Staff 1 has finished reading the logbook.
+[Time 13 ms] Intelligence Staff 2 has finished reading the logbook.
+[Time 13 ms] Leader of Team 2 (Agent 4) is writing to the logbook...
+[Time 13 ms] Intelligence Staff 2 is waiting to read the logbook...
+Operative 2 has completed document recreation at time 14 at station 3
+Unit 1 has completed document recreation phase at time 14
+[Time 14 ms] Leader of Team 1 (Agent 2) is waiting to write to the logbook...
 [Time 15 ms] Intelligence Staff 1 is waiting to read the logbook...
-Intelligence Staff 1 began reviewing logbook at time 15. Operations completed = 0
-[Time 15 ms] Intelligence Staff 2 has finished reading the logbook.
-[Time 16 ms] Intelligence Staff 1 has finished reading the logbook.
-Operative 3 has arrived at typewriting station 4 at time 16
-[Time 16 ms] Intelligence Staff 1 is waiting to read the logbook...
-Intelligence Staff 1 began reviewing logbook at time 16. Operations completed = 0
-Operative 14 has arrived at typewriting station 3 at time 17
-[Time 17 ms] Intelligence Staff 2 is waiting to read the logbook...
-Intelligence Staff 2 began reviewing logbook at time 17. Operations completed = 0
-[Time 17 ms] Intelligence Staff 1 has finished reading the logbook.
-[Time 18 ms] Intelligence Staff 1 is waiting to read the logbook...
-Intelligence Staff 1 began reviewing logbook at time 18. Operations completed = 0
-[Time 18 ms] Intelligence Staff 2 has finished reading the logbook.
-[Time 19 ms] Intelligence Staff 1 has finished reading the logbook.
-[Time 19 ms] Intelligence Staff 1 is waiting to read the logbook...
-Intelligence Staff 1 began reviewing logbook at time 19. Operations completed = 0
-[Time 20 ms] Intelligence Staff 1 has finished reading the logbook.
-Operative 10 has completed document recreation at time 20 at station 3
-Operative 6 has started document recreation at time 20 at station 3
-[Time 20 ms] Intelligence Staff 2 is waiting to read the logbook...
-Intelligence Staff 2 began reviewing logbook at time 20. Operations completed = 0
-Operative 7 has completed document recreation at time 21 at station 4
-Operative 15 has started document recreation at time 21 at station 4
-[Time 22 ms] Intelligence Staff 2 has finished reading the logbook.
-[Time 22 ms] Intelligence Staff 2 is waiting to read the logbook...
-Intelligence Staff 2 began reviewing logbook at time 22. Operations completed = 0
-[Time 22 ms] Intelligence Staff 1 is waiting to read the logbook...
-Intelligence Staff 1 began reviewing logbook at time 22. Operations completed = 0
-Operative 5 has completed document recreation at time 23 at station 2
-Operative 13 has started document recreation at time 23 at station 2
-[Time 23 ms] Intelligence Staff 2 has finished reading the logbook.
-[Time 23 ms] Intelligence Staff 1 has finished reading the logbook.
-[Time 23 ms] Intelligence Staff 1 is waiting to read the logbook...
-Intelligence Staff 1 began reviewing logbook at time 23. Operations completed = 0
-Operative 12 has completed document recreation at time 24 at station 1
-Operative 4 has started document recreation at time 24 at station 1
-[Time 24 ms] Intelligence Staff 1 has finished reading the logbook.
-[Time 24 ms] Intelligence Staff 1 is waiting to read the logbook...
-Intelligence Staff 1 began reviewing logbook at time 24. Operations completed = 0
-[Time 25 ms] Intelligence Staff 2 is waiting to read the logbook...
-Intelligence Staff 2 began reviewing logbook at time 25. Operations completed = 0
-[Time 26 ms] Intelligence Staff 1 has finished reading the logbook.
-[Time 26 ms] Intelligence Staff 1 is waiting to read the logbook...
-Intelligence Staff 1 began reviewing logbook at time 26. Operations completed = 0
-[Time 26 ms] Intelligence Staff 2 has finished reading the logbook.
-[Time 26 ms] Intelligence Staff 2 is waiting to read the logbook...
-Intelligence Staff 2 began reviewing logbook at time 26. Operations completed = 0
-[Time 27 ms] Intelligence Staff 1 has finished reading the logbook.
-[Time 27 ms] Intelligence Staff 2 has finished reading the logbook.
-[Time 27 ms] Intelligence Staff 1 is waiting to read the logbook...
-Intelligence Staff 1 began reviewing logbook at time 27. Operations completed = 0
-[Time 27 ms] Intelligence Staff 2 is waiting to read the logbook...
-Intelligence Staff 2 began reviewing logbook at time 27. Operations completed = 0
-[Time 28 ms] Intelligence Staff 1 has finished reading the logbook.
-[Time 29 ms] Intelligence Staff 2 has finished reading the logbook.
-[Time 29 ms] Intelligence Staff 2 is waiting to read the logbook...
-Intelligence Staff 2 began reviewing logbook at time 29. Operations completed = 0
-[Time 30 ms] Intelligence Staff 2 has finished reading the logbook.
-[Time 30 ms] Intelligence Staff 2 is waiting to read the logbook...
-Intelligence Staff 2 began reviewing logbook at time 30. Operations completed = 0
-Operative 6 has completed document recreation at time 30 at station 3
-leader of team 2 is going to write to logbook,his agent id: 10
-[Time 31 ms] Intelligence Staff 1 is waiting to read the logbook...
-Intelligence Staff 1 began reviewing logbook at time 31. Operations completed = 0
-Operative 14 has started document recreation at time 31 at station 3
-[Time 31 ms] Leader of Team 2 (Agent 10) is waiting to write to the logbook...
-[Time 31 ms] Intelligence Staff 2 has finished reading the logbook.
-Operative 15 has completed document recreation at time 32 at station 4
-Operative 3 has started document recreation at time 32 at station 4
-[Time 32 ms] Intelligence Staff 1 has finished reading the logbook.
-[Time 32 ms] Leader of Team 2 (Agent 10) is writing to the logbook...
-[Time 32 ms] Intelligence Staff 1 is waiting to read the logbook...
-Operative 13 has completed document recreation at time 33 at station 2
-Operative 1 has started document recreation at time 33 at station 2
-[Time 33 ms] Intelligence Staff 2 is waiting to read the logbook...
-Operative 4 has completed document recreation at time 34 at station 1
-[Time 35 ms] Leader of Team 2 (Agent 10) has completed writing to the logbook. Operations completed = 5
-Intelligence Staff 1 began reviewing logbook at time 35. Operations completed = 5
-Intelligence Staff 2 began reviewing logbook at time 35. Operations completed = 5
-[Time 36 ms] Intelligence Staff 1 has finished reading the logbook.
-[Time 36 ms] Intelligence Staff 2 has finished reading the logbook.
-[Time 36 ms] Intelligence Staff 2 is waiting to read the logbook...
-Intelligence Staff 2 began reviewing logbook at time 36. Operations completed = 5
-[Time 37 ms] Intelligence Staff 2 has finished reading the logbook.
-[Time 38 ms] Intelligence Staff 2 is waiting to read the logbook...
-Intelligence Staff 2 began reviewing logbook at time 38. Operations completed = 5
-[Time 38 ms] Intelligence Staff 1 is waiting to read the logbook...
-Intelligence Staff 1 began reviewing logbook at time 38. Operations completed = 5
-[Time 39 ms] Intelligence Staff 2 has finished reading the logbook.
-[Time 39 ms] Intelligence Staff 1 has finished reading the logbook.
-[Time 41 ms] Intelligence Staff 2 is waiting to read the logbook...
-Intelligence Staff 2 began reviewing logbook at time 41. Operations completed = 5
-Operative 14 has completed document recreation at time 41 at station 3
-leader of team 3 is going to write to logbook,his agent id: 15
-[Time 41 ms] Leader of Team 3 (Agent 15) is waiting to write to the logbook...
-[Time 41 ms] Intelligence Staff 1 is waiting to read the logbook...
-Intelligence Staff 1 began reviewing logbook at time 41. Operations completed = 5
-Operative 3 has completed document recreation at time 42 at station 4
-[Time 42 ms] Intelligence Staff 2 has finished reading the logbook.
-[Time 42 ms] Intelligence Staff 2 is waiting to read the logbook...
-Intelligence Staff 2 began reviewing logbook at time 42. Operations completed = 5
-[Time 42 ms] Intelligence Staff 1 has finished reading the logbook.
-Operative 1 has completed document recreation at time 43 at station 2
-leader of team 1 is going to write to logbook,his agent id: 5
-[Time 43 ms] Intelligence Staff 2 has finished reading the logbook.
-[Time 43 ms] Leader of Team 3 (Agent 15) is writing to the logbook...
-[Time 43 ms] Leader of Team 1 (Agent 5) is waiting to write to the logbook...
+Unit 2 has completed intelligence distribution at time 16,Operations completed = 1
+[Time 16 ms] Leader of Team 3 (Agent 6) is writing to the logbook...
+Unit 3 has completed intelligence distribution at time 20,Operations completed = 2
+Intelligence Staff 2 began reviewing logbook at time 20. Operations completed = 2
+Intelligence Staff 1 began reviewing logbook at time 20. Operations completed = 2
+[Time 21 ms] Intelligence Staff 2 has finished reading the logbook.
+[Time 21 ms] Intelligence Staff 1 has finished reading the logbook.
+[Time 21 ms] Leader of Team 1 (Agent 2) is writing to the logbook...
+Unit 1 has completed intelligence distribution at time 24,Operations completed = 3

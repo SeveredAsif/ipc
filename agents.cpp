@@ -10,6 +10,7 @@
 
 using namespace std;
 
+vector<pthread_t> leader_threads;
 //semaphore to control sleep and wake up
 sem_t stations[4];
 
@@ -20,13 +21,14 @@ sem_t mutex;
 int reader_count = 0;
 int logbook_total_completion = 0;
 volatile bool stop_readers = false;
-sem_t thread_create;
+sem_t completion_count_sem;
 
 void init_semaphore()
 {
 	for(int i=0;i<4;i++){
         sem_init(&stations[i],1,1);
     }
+    sem_init(&completion_count_sem,1,1);
 }
 
 
@@ -67,7 +69,12 @@ int get_random_number() {
   std::poisson_distribution<int> poissonDist(lambda);
   return poissonDist(generator);
 }
-
+// uses mutex lock to write output to avoid interleaving
+void write_output(std::string output) {
+  pthread_mutex_lock(&output_lock);
+  std::cout << output;
+  pthread_mutex_unlock(&output_lock);
+}
 enum agent_state { DOCUMENT_RECREATING, WAITING_FOR_LOGGING };
 
 void* writer_activities(void* arg);
@@ -96,27 +103,25 @@ public:
   }
 
   void notify_leader(int id){
-    //sem_wait(&thread_create);
+    sem_wait(&completion_count_sem);
     this->completion_count++;
+    sem_post(&completion_count_sem);
     if(this->completion_count==team_size){
-        cout<<"leader of team "<<team_number<<" is going to write to logbook,his agent id: "<<this->id<<endl;
-        pthread_t leader;
-        pthread_create(&leader,NULL,writer_activities,(void*)this);
+      write_output("Unit "+to_string(team_number)+" has completed document recreation phase at time "+to_string(get_time())+"\n");
+        //cout<<"leader of team "<<team_number<<" is going to write to logbook,his agent id: "<<this->id<<endl;
+        pthread_t t;
+        pthread_create(&t, NULL, writer_activities, (void*)this);
+        leader_threads.push_back(t);
     }
 
 
-    //sem_post(&thread_create);
+    
   }
 };
 
 std::vector<agent> agents; // Vector to store all agents
 
-// uses mutex lock to write output to avoid interleaving
-void write_output(std::string output) {
-  pthread_mutex_lock(&output_lock);
-  std::cout << output;
-  pthread_mutex_unlock(&output_lock);
-}
+
 
 /**
  * Simulate arriving at the printing station and log the time.
@@ -190,14 +195,16 @@ void* writer_activities(void* arg) {
                "Leader of Team " + to_string(leader->team_number) +
                " (Agent " + to_string(leader->id) + ") is writing to the logbook...\n");
 
-  logbook_total_completion += leader->team_size;  
+  logbook_total_completion += 1;  
 
   usleep(y*SLEEP_MULTIPLIER); //y=Logbook entry time  
 
-  write_output("[Time " + to_string(get_time()) + " ms] " +
-               "Leader of Team " + to_string(leader->team_number) +
-               " (Agent " + to_string(leader->id) + ") has completed writing to the logbook. " +
-               "Operations completed = " + to_string(logbook_total_completion) + "\n");
+  // write_output("[Time " + to_string(get_time()) + " ms] " +
+  //              "Leader of Team " + to_string(leader->team_number) +
+  //              " (Agent " + to_string(leader->id) + ") has completed writing to the logbook. " +
+  //              "Operations completed = " + to_string(logbook_total_completion) + "\n");
+  write_output("Unit "+to_string(leader->team_number) +" has completed intelligence distribution at time "+to_string(get_time())+
+                ",Operations completed = " + to_string(logbook_total_completion) +"\n");
 
   sem_post(&logbook);  
 
@@ -339,7 +346,9 @@ int main(int argc, char *argv[]) {
     pthread_join(agent_threads[i], NULL);
   }
    stop_readers = true;
-//   pthread_join(logbook_staffs[0],NULL);
+  for (pthread_t t : leader_threads) {
+        pthread_join(t, NULL);
+    }
 //   pthread_join(logbook_staffs[1],NULL);
 
 
